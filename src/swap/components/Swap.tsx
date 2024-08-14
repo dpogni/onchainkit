@@ -6,6 +6,7 @@ import { SwapAmountInput } from './SwapAmountInput';
 import { SwapButton } from './SwapButton';
 import { SwapMessage } from './SwapMessage';
 import { SwapProvider } from './SwapProvider';
+import { SwapSettings } from './SwapSettings';
 import { SwapToggleButton } from './SwapToggleButton';
 
 export function Swap({
@@ -15,15 +16,17 @@ export function Swap({
   title = 'Swap',
   className,
 }: SwapReact) {
-  const { inputs, toggleButton, swapButton, swapMessage } = useMemo(() => {
-    const childrenArray = Children.toArray(children);
-    return {
-      inputs: childrenArray.filter(findComponent(SwapAmountInput)),
-      toggleButton: childrenArray.find(findComponent(SwapToggleButton)),
-      swapButton: childrenArray.find(findComponent(SwapButton)),
-      swapMessage: childrenArray.find(findComponent(SwapMessage)),
-    };
-  }, [children]);
+  const { inputs, toggleButton, swapButton, swapMessage, swapSettings } =
+    useMemo(() => {
+      const childrenArray = Children.toArray(children);
+      return {
+        inputs: childrenArray.filter(findComponent(SwapAmountInput)),
+        toggleButton: childrenArray.find(findComponent(SwapToggleButton)),
+        swapButton: childrenArray.find(findComponent(SwapButton)),
+        swapMessage: childrenArray.find(findComponent(SwapMessage)),
+        swapSettings: childrenArray.find(findComponent(SwapSettings)),
+      };
+    }, [children]);
 
   return (
     <SwapProvider address={address} experimental={experimental}>
@@ -35,10 +38,11 @@ export function Swap({
         )}
         data-testid="ockSwap_Container"
       >
-        <div className="mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <h3 className={text.title3} data-testid="ockSwap_Title">
             {title}
           </h3>
+          <div className="flex justify-end">{swapSettings}</div>
         </div>
         {inputs[0]}
         <div className="relative h-1">{toggleButton}</div>
