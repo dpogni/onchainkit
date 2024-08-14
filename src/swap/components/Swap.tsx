@@ -39,7 +39,10 @@ export function Swap({
         data-testid="ockSwap_Container"
       >
         <div className="mb-4 flex items-center justify-between">
-          <h3 className={text.title3} data-testid="ockSwap_Title">
+          <h3
+            className={cn(text.title3, 'text-inherit')}
+            data-testid="ockSwap_Title"
+          >
             {title}
           </h3>
           <div className="flex justify-end">{swapSettings}</div>
