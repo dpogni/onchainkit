@@ -3,6 +3,7 @@ import {
   SwapAmountInput,
   SwapButton,
   SwapMessage,
+  SwapSettings,
   SwapToggleButton,
 } from '@coinbase/onchainkit/swap';
 import type { Token } from '@coinbase/onchainkit/token';
@@ -80,6 +81,7 @@ function SwapComponent() {
         </div>
       )}
       <Swap address={address!} className="border bg-[#ffffff]">
+        <SwapSettings />
         <SwapAmountInput
           label="Sell"
           swappableTokens={swappableTokens}
