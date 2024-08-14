@@ -219,13 +219,12 @@ export type SwapReact = {
   title?: string; // Title for the Swap component. (default: "Swap")
 };
 
+/**
+ * Note: exported as public Type
+ */
 export type SwapSettingsReact = {
   icon: ReactNode;
   title: string;
-};
-
-export type SwapSettingsContainerReact = {
-  className?: string; // Optional className override for top div element.
 };
 
 /**

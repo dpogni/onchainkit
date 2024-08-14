@@ -22,6 +22,7 @@ export type {
   SwapMessageReact,
   SwapQuote,
   SwapReact,
+  SwapSettingsReact,
   SwapToggleButtonReact,
   Transaction,
 } from './types';
