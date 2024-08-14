@@ -1,8 +1,13 @@
 import { isValidElement, useMemo } from 'react';
 import { SwapSettingsSvg } from '../../internal/svg/swapSettings';
+import { cn } from '../../styles/theme';
 import type { SwapSettingsReact } from '../types';
 
-export function SwapSettings({ icon, title = 'Auto' }: SwapSettingsReact) {
+export function SwapSettings({
+  className,
+  icon,
+  title = 'Auto',
+}: SwapSettingsReact) {
   const iconSvg = useMemo(() => {
     if (icon === undefined) {
       return SwapSettingsSvg;
@@ -14,7 +19,7 @@ export function SwapSettings({ icon, title = 'Auto' }: SwapSettingsReact) {
 
   return (
     <div
-      className="flex w-full items-center justify-between"
+      className={cn('flex w-full items-center justify-between', className)}
       data-testid="ockSwapSettings_Settings"
     >
       <div className="flex items-center space-x-1">
